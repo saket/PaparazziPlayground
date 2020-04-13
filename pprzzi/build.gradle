@@ -1,0 +1,23 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'app.cash.paparazzi'
+
+android {
+  compileSdkVersion versions.compileSdk
+
+  defaultConfig {
+    minSdkVersion versions.minSdk
+  }
+
+  kotlinOptions {
+    jvmTarget = "1.8"
+  }
+}
+
+dependencies {
+  implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$versions.kotlin"
+  implementation "app.cash.paparazzi:paparazzi:$versions.paparazzi"
+  implementation "androidx.core:core-ktx:1.2.0"
+
+  testImplementation "junit:junit:4.13"
+}
