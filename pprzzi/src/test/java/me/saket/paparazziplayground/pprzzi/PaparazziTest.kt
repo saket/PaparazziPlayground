@@ -1,20 +1,13 @@
 package me.saket.paparazziplayground.pprzzi
 
 import android.content.Context
-import android.graphics.Canvas
 import android.graphics.Color
-import android.graphics.Paint
 import android.text.SpannableStringBuilder
-import android.text.StaticLayout
-import android.text.TextPaint
 import android.util.TypedValue
 import android.util.TypedValue.COMPLEX_UNIT_DIP
 import android.util.TypedValue.COMPLEX_UNIT_SP
-import android.view.View
 import android.widget.TextView
-import androidx.core.text.bold
-import androidx.core.text.italic
-import androidx.core.text.strikeThrough
+import androidx.core.text.color
 import app.cash.paparazzi.DeviceConfig.Companion.PIXEL_3
 import app.cash.paparazzi.Paparazzi
 import org.junit.Rule
@@ -31,11 +24,11 @@ class PaparazziTest {
 
   @Test fun spans() {
     val markdown = SpannableStringBuilder("Press understands standard markdown syntaxes, including: ")
-        .bold { append("**bold**") }
+        .append("**bold**")
         .append(", ")
-        .italic { append("*italic*") }
+        .append("*italic*")
         .append(", ")
-        .strikeThrough { append("~~strikethrough~~") }
+        .append("~~strikethrough~~")
         .append(", and many more.")
 
     val textView = TextView(context).apply {
@@ -51,11 +44,5 @@ class PaparazziTest {
     get() {
       val metrics = context.resources.displayMetrics
       return TypedValue.applyDimension(COMPLEX_UNIT_DIP, this.toFloat(), metrics).roundToInt()
-    }
-
-  private val Float.sp: Float
-    get() {
-      val metrics = context.resources.displayMetrics
-      return TypedValue.applyDimension(COMPLEX_UNIT_SP, this, metrics)
     }
 }

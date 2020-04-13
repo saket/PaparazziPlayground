@@ -23,9 +23,8 @@ android {
     }
   }
 
-  compileOptions {
-    targetCompatibility 1.8
-    sourceCompatibility 1.8
+  kotlinOptions {
+    jvmTarget = "1.8"
   }
 }
 
@@ -33,4 +32,5 @@ dependencies {
   implementation "androidx.appcompat:appcompat:1.1.0"
   implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$versions.kotlin"
   implementation "com.jakewharton.timber:timber:$versions.timber"
+  implementation "androidx.core:core-ktx:1.2.0"
 }
